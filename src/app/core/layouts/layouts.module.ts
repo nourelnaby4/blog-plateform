@@ -2,31 +2,30 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { NavbarComponent } from './navbar/navbar.component';
-
 import { RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
 import { LayoutsRoutingModule } from './layouts-routing.module';
-
-
+import { CategoryNavbarComponent } from './category-navbar/category-navbar.component';
+import { PostCardComponent } from './widgets/post-card/post-card.component';
+import { SubscribtionModule } from '../../features/subscribtion/subscribtion.module';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
-    NavbarComponent,
     LayoutComponent,
-
+    CategoryNavbarComponent,
+    PostCardComponent,
   ],
   imports: [
     CommonModule,
     RouterModule,
-    LayoutsRoutingModule
+    LayoutsRoutingModule,
+    SubscribtionModule
   ],
   exports: [
     HeaderComponent,
     FooterComponent,
-    NavbarComponent,
     LayoutComponent
   ]
 })
