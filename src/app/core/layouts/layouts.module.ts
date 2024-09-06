@@ -6,7 +6,6 @@ import { RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
 import { LayoutsRoutingModule } from './layouts-routing.module';
 import { CategoryNavbarComponent } from './category-navbar/category-navbar.component';
-import { PostCardComponent } from './widgets/post-card/post-card.component';
 import { SubscribtionModule } from '../../features/subscribtion/subscribtion.module';
 
 @NgModule({
@@ -15,7 +14,6 @@ import { SubscribtionModule } from '../../features/subscribtion/subscribtion.mod
     FooterComponent,
     LayoutComponent,
     CategoryNavbarComponent,
-    PostCardComponent,
   ],
   imports: [
     CommonModule,

@@ -1,10 +1,11 @@
-.card{
-  max-width: 400px;
+.card {
+  min-width: 100%;
+  margin: 5px 15px;
+  h5 {
+    font-size: 0.8rem;
+  }
 
-  img{
-    max-height: 300px;
+  img {
+    max-height: 170px;
   }
 }
-
-
-

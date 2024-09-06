@@ -6,6 +6,8 @@ import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-co
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
+import { PostCardComponent } from '../../core/layouts/widgets/post-card/post-card.component';
+import { SingleCategoryComponent } from './single-category/single-category.component';
 
 
 @NgModule({
@@ -13,11 +15,14 @@ import { AboutComponent } from './about/about.component';
     TermsAndConditionsComponent,
     ContactUsComponent,
     HomeComponent,
-    AboutComponent
+    AboutComponent,
+    PostCardComponent,
+    SingleCategoryComponent
   ],
   imports: [
     CommonModule,
-    PagesRoutingModule
+    PagesRoutingModule,
+
   ]
 })
 export class PagesModule { }

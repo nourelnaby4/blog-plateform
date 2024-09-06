@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
+import { SingleCategoryComponent } from './single-category/single-category.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,11 @@ const routes: Routes = [
     path: 'terms-and-conditions',
     component: TermsAndConditionsComponent,
     title: 'Terms and Conditions'
+  },
+  {
+    path: 'single-category',
+    component: SingleCategoryComponent,
+    title: 'single-category'
   },
   {
     path: '**',
