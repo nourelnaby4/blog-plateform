@@ -18,8 +18,8 @@ const routes: Routes = [
         loadChildren: () => import('../../features/pages/pages.module').then(m => m.PagesModule)
       },
       {
-        path: 'comments',
-        loadChildren: () => import('../../features/comment/comment.module').then(m => m.CommentModule)
+        path: 'posts',
+        loadChildren: () => import('../../features/post/post.module').then(m => m.PostModule)
       },
     ]
   }

@@ -10,7 +10,12 @@
 body {
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
-  color: var(--body-text-color)
+  color: var(--body-text-color);
+  display: contents;
+}
+
+a {
+  text-decoration: none;
 }
 
 .site-logo {
@@ -26,16 +31,35 @@ body {
 
 .card {
   border: none;
+  max-width: 100%;
   color: var(--body-text-color);
-  box-shadow: 0px 0px 33px -10px rgba(71, 114, 254, 0.3);
+  box-shadow: 0px 0px 33px -10px rgba(66, 108, 248, 0.5);
 }
 
-.shadow-effect {
-  border: none;
-  box-shadow: 0px 0px 33px -10px rgba(71, 114, 254, 0.3);
-}
+
 
 .bg-theme {
   background-color: var(--primary-color);
 }
 
+.bg-secondary-theme{
+  background-color: var(--secondary-color);
+}
+
+.bg-primary-theme{
+  background-color: var(--primary-color);
+}
+
+.btn-info {
+  background-color: #21a3e3;
+  color: white;
+}
+
+
+.form-group {
+  margin-bottom: 20px;
+
+  label {
+    margin-left: 5px;
+  }
+}

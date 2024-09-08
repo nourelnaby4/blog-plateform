@@ -1,4 +1,7 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+/* tslint:disable:no-unused-variable */
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
+import { DebugElement } from '@angular/core';
 
 import { CommentFormComponent } from './comment-form.component';
 
@@ -6,12 +9,14 @@ describe('CommentFormComponent', () => {
   let component: CommentFormComponent;
   let fixture: ComponentFixture<CommentFormComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [CommentFormComponent]
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ CommentFormComponent ]
     })
     .compileComponents();
+  }));
 
+  beforeEach(() => {
     fixture = TestBed.createComponent(CommentFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
