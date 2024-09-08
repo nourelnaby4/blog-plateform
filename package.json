@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:blog-plateform": "node dist/blog-plateform/server/server.mjs"
+    "serve:ssr:admin": "node dist/admin/server/server.mjs",
+    "serve:ssr:user": "node dist/user/server/server.mjs"
   },
   "private": true,
   "dependencies": {
