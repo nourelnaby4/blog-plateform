@@ -7,7 +7,7 @@ const routes: Routes = [
   },
   {
     path: 'layout',
-    loadChildren: () => import('./core/layouts/layouts.module').then(m => m.LayoutsModule)
+    loadChildren: () => import('./layouts/layouts.module').then(m => m.LayoutsModule)
   },
   { path: '**', redirectTo: '' }
 ];

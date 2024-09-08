@@ -6,8 +6,7 @@ import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-co
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
-import { SingleCategoryComponent } from './single-category/single-category.component';
-import { WidgetsModule } from '../../core/layouts/widgets/widgets.module';
+import { WidgetsModule } from '../widgets/widgets.module';
 
 
 @NgModule({
@@ -16,7 +15,6 @@ import { WidgetsModule } from '../../core/layouts/widgets/widgets.module';
     ContactUsComponent,
     HomeComponent,
     AboutComponent,
-    SingleCategoryComponent
   ],
   imports: [
     CommonModule,

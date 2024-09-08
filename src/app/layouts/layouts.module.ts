@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
 import { LayoutsRoutingModule } from './layouts-routing.module';
 import { CategoryNavbarComponent } from './category-navbar/category-navbar.component';
-import { SubscribtionModule } from '../../features/subscribtion/subscribtion.module';
+import { SubscribtionModule } from '../features/subscribtion/subscribtion.module';
 
 @NgModule({
   declarations: [

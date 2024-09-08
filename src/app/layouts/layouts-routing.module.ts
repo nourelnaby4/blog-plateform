@@ -15,11 +15,20 @@ const routes: Routes = [
       },
       {
         path: 'pages',
-        loadChildren: () => import('../../features/pages/pages.module').then(m => m.PagesModule)
+        loadChildren: () => import('../pages/pages.module').then(m => m.PagesModule)
       },
       {
         path: 'posts',
-        loadChildren: () => import('../../features/post/post.module').then(m => m.PostModule)
+        loadChildren: () => import('../features/post/post.module').then(m => m.PostModule)
+      },
+      {
+        path: 'category',
+        loadChildren: () => import('../features/category/category.module').then(m => m.CategoryModule)
+      },
+      {
+        path: '**',
+        redirectTo: 'pages',
+        pathMatch: 'full'
       },
     ]
   }
