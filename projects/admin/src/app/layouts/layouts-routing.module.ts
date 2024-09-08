@@ -14,8 +14,12 @@ const routes: Routes = [
         pathMatch: 'full'
       },
       {
-          path: 'pages',
-            loadChildren: () => import('../pages/pages.module').then(m => m.PagesModule)
+        path: 'pages',
+        loadChildren: () => import('../pages/pages.module').then(m => m.PagesModule)
+      },
+      {
+        path: 'category',
+        loadChildren: () => import('../features/category/category.module').then(m => m.CategoryModule)
       },
       {
         path: '**',
