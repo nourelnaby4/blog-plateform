@@ -10,7 +10,8 @@ const routes: Routes = [
   },
   {
     path: 'category-list',
-    component: CategoryComponent
+    component: CategoryComponent,
+    title:'category-list'
   },
   {
     path: '**',
