@@ -11,23 +11,32 @@ import { GlobalService } from '../../../../shared/services/global.service';
 })
 export class CategoryComponent implements OnInit {
   categoryForm!: FormGroup;
+  categoryList: any[] = [];
 
   private categoryService = inject(CategoryService);
   private globalService = inject(GlobalService);
 
-
-
   ngOnInit() {
+
+    this.categoryService.getData().subscribe(
+      res => {
+        this.categoryList = res
+        console.log(this.categoryList)
+      }
+    );
+
     this.categoryForm = new FormGroup({
       categoryName: new FormControl('', [Validators.required])
     });
+
+
   }
 
   onSubmit() {
 
     if (this.categoryForm.valid) {
 
-      let category:Category = {
+      let category: Category = {
         name: this.categoryForm.value.categoryName,
         status: 'active'
       }

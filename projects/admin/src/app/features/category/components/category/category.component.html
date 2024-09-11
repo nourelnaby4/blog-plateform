@@ -1,43 +1,70 @@
-<div class="row justify-content-center">
-  <div class="col-md-8 bg-secondary-theme card">
-    <div class="container p-5">
-      <div class="row">
-        <div class="col-md-12">
-          <h3 class="text-center">New Categories</h3>
-          <p class="text-center mb-5">You Can add new Category from here..!</p>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8 bg-secondary-theme card">
+      <div class="container p-5">
+        <div class="row">
+          <div class="col-md-12">
+            <h3 class="text-center">New Categories</h3>
+            <p class="text-center mb-5">You Can add new Category from here..!</p>
 
-          <form
-            [formGroup]="categoryForm"
-            (ngSubmit)="onSubmit()"
-            class="row justify-content-center align-content-center form-inline text-center"
-          >
-            <div class="form-group col-md-10">
-              <input
-                type="text"
-                class="form-control shadow-effect"
-                placeholder="Add New Category"
-                formControlName="categoryName"
-                [ngClass]="{
-                  'is-invalid':
-                    categoryForm.get('categoryName')?.invalid &&
-                    categoryForm.get('categoryName')?.touched
-                }"
-              />
+            <form
+              [formGroup]="categoryForm"
+              (ngSubmit)="onSubmit()"
+              class="row justify-content-center align-content-center form-inline text-center"
+            >
+              <div class="form-group col-md-10">
+                <input
+                  type="text"
+                  class="form-control shadow-effect"
+                  placeholder="Add New Category"
+                  formControlName="categoryName"
+                  [ngClass]="{
+                    'is-invalid':
+                      categoryForm.get('categoryName')?.invalid &&
+                      categoryForm.get('categoryName')?.touched
+                  }"
+                />
 
-              <!-- Display validation error -->
-              @if (categoryForm.get('categoryName')?.invalid &&
-              categoryForm.get('categoryName')?.touched) {
-              <div class="text-danger">Category name is required</div>
-              }
-            </div>
+                <!-- Display validation error -->
+                @if (categoryForm.get('categoryName')?.invalid &&
+                categoryForm.get('categoryName')?.touched) {
+                <div class="text-danger">Category name is required</div>
+                }
+              </div>
 
-            <div class="col-md-2">
-              <button class="btn bg-theme mb-2 text-white"
+              <div class="col-md-2">
+                <button class="btn bg-theme mb-2 text-white"
 
-              >Add Category</button>
-            </div>
-          </form>
+                >Add Category</button>
+              </div>
+            </form>
+          </div>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center mt-5 mb-5">
+    <div class="card col-6">
+      <div class="card body">
+        <table class="table row-border hover">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Category</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (item of categoryList; track $index) {
+              <tr>
+                <td>{{item.id}}</td>
+                <td>{{item.data.name}}</td>
+                <td>{{item.data.status}}</td>
+              </tr>
+            }
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
