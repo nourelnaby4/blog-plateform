@@ -12,67 +12,78 @@ import { GlobalService } from '../../../../shared/services/global.service';
 export class CategoryComponent implements OnInit {
   categoryForm!: FormGroup;
   categoryList: any[] = [];
+  categoryName!: string;
 
   private categoryService = inject(CategoryService);
   private globalService = inject(GlobalService);
 
   ngOnInit() {
+    this.getData();
+    this.initalizeForm();
+  }
 
-    this.categoryService.getData().subscribe(
+  initalizeForm() {
+    this.categoryForm = new FormGroup({
+      id: new FormControl(''),
+      name: new FormControl('', [Validators.required]),
+      status: new FormControl('New', [Validators.required])
+    });
+  }
+
+  getData() {
+    this.categoryService.get().subscribe(
       res => {
         this.categoryList = res
         console.log(this.categoryList)
       }
     );
-
-    this.categoryForm = new FormGroup({
-      categoryName: new FormControl('', [Validators.required])
-    });
-
-
   }
 
   onSubmit() {
+    try {
+      if (this.categoryForm.valid) {
+        let id = this.categoryForm.value.id;
 
-    if (this.categoryForm.valid) {
+        let category: Category = {
+          name: this.categoryForm.value.name,
+          status: this.categoryForm.value.status
+        }
 
-      let category: Category = {
-        name: this.categoryForm.value.categoryName,
-        status: 'active'
+        if (id) {
+          this.categoryService.update(id!, category);
+        }
+        else {
+          this.categoryService.create(category);
+        }
+
+        this.categoryList.unshift(category);
+
+        this.categoryName='';
       }
-
-      this.categoryService.saveDate(category)
-
-      this.globalService.showSuccess();
-
-      this.categoryForm.reset();
+      else {
+        this.globalService.showError("name of category is required")
+      }
+    }
+    catch (error) {
+      this.globalService.showError();
+    }
+    finally{
+      this.initalizeForm();
     }
   }
 
-  // onSubmit() {
-  //   if (this.categoryForm.valid) {
-  //     let categoryData = this.categoryForm.value;
-  //     console.log(categoryData);
+  onEdit(id: string, category: Category) {
+    this.categoryForm.patchValue({
+      id: id,
+      name: category.name,
+      status: 'Edited'
+    });
+  }
 
-  //     let subCategoryDate = {
-  //       name: 'subCategory1'
-  //     };
-
-  //     this._store.collection('categories').add(categoryData).then(docRef => {
-  //       console.log(docRef);
-
-  //       this._store.collection('categories')
-  //       .doc(docRef.id) .collection('subCategories').add(subCategoryDate).then(
-  //           docSubRef => {
-  //             console.log(docSubRef);
-  //           }
-  //         )
-  //     })
-  //       .catch(error => {
-  //         alert(error)
-  //       });
-
-  //     this.categoryForm.reset();
-  //   }
-  // }
+  onDelete(id: string) {
+    this.categoryService.delete(id);
+    this.initalizeForm();
+  }
 }
+
+
