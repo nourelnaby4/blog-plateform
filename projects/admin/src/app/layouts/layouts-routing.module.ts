@@ -22,6 +22,10 @@ const routes: Routes = [
         loadChildren: () => import('../features/category/category.module').then(m => m.CategoryModule)
       },
       {
+        path: 'post',
+        loadChildren: () => import('../features/post/post.module').then(m => m.PostModule)
+      },
+      {
         path: '**',
         redirectTo: 'pages',
         pathMatch: 'full'
